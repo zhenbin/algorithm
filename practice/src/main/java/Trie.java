@@ -3,7 +3,6 @@ import java.util.List;
 
 /**
  * Created by zhenbin.lzb on 2016/9/2.
- * <p>
  */
 public class Trie {
     private class TrieNode {
@@ -58,7 +57,7 @@ public class Trie {
         }
         for (int i = 0; i < TrieNode.NEXT_COUNT; i++) {
             if (node.next[i] != null) {
-                printTrie(node.next[i], str + ((char)('a' + i)));
+                printTrie(node.next[i], str + (char) ('a' + i));
             }
         }
     }

@@ -1,3 +1,5 @@
+package com.zhenbin.lzb.algorithm;
+
 /**
  * Created by zhenbin.lzb on 2016/9/2.
  */
@@ -13,13 +15,15 @@ public class KMP {
 
     //生成next数组
     private void initNext() {
-        next[0] = 0;
+        //kmp是一个确定有限状态机(DFA)，其中-1代表初始状态的节点
+        next[0] = -1;
         for (int i = 1; i < matchingStr.length; i++) {
             int point = next[i - 1];
-            while (point > 0 && matchingStr[point] != matchingStr[i]) {
+            while (point >= 0 && matchingStr[point + 1] != matchingStr[i]) {
+                //point节点和next[point]结节是相同的字母
                 point = next[point];
             }
-            next[i] = matchingStr[point] == matchingStr[i] ? point + 1 : 0;
+            next[i] = matchingStr[point + 1] == matchingStr[i] ? point + 1 : -1;
         }
     }
 
@@ -29,13 +33,13 @@ public class KMP {
      */
     public int matchString(String targetString) {
         char[] targetStr = targetString.toCharArray();
-        int matchingStrPoint = 0;
+        int matchingStrPoint = -1;
         for (int i = 0; i < targetStr.length; i++) {
-            while (matchingStrPoint > 0 && matchingStr[matchingStrPoint] != targetStr[i]) {
+            while (matchingStrPoint >= 0 && matchingStr[matchingStrPoint + 1] != targetStr[i]) {
                 matchingStrPoint = next[matchingStrPoint];
             }
-            matchingStrPoint = matchingStr[matchingStrPoint] == targetStr[i] ? matchingStrPoint + 1 : 0;
-            if (matchingStrPoint == matchingStr.length)
+            matchingStrPoint = matchingStr[matchingStrPoint + 1] == targetStr[i] ? matchingStrPoint + 1 : -1;
+            if (matchingStrPoint == matchingStr.length - 1)
                 return i + 1 - matchingStr.length;
         }
         return -1;

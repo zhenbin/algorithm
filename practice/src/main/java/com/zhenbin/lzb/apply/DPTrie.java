@@ -1,3 +1,7 @@
+package com.zhenbin.lzb.apply;
+
+import com.zhenbin.lzb.algorithm.Trie;
+
 import java.util.List;
 
 /**

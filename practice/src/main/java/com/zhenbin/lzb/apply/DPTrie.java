@@ -11,6 +11,10 @@ import java.util.List;
  */
 public class DPTrie {
 
+    /**
+     * words里包含dict里的字符串的最大长度（包含的字符串可能重叠，找出不重叠的情况下，最长有多长）
+     * @param args
+     */
     public static void main(String[] args) {
         String[] dict = {"abc", "cde", "abcf"};
         String words = "aadabcfdafabcde";

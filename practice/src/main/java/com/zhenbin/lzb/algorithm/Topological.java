@@ -10,8 +10,7 @@ public class Topological {
      * 数据结构：
      *  inEdgeNum[n]: 保存每个结点的入度大小
      *  outEdge[n][n]: 保存每个结节对应的直接下游结点
-     *
-     * 算法：
+     * BFS算法：
      * 把所有入度为0的点加入队列
      * while (队列不为空):
      *  取出队列头的点
@@ -19,7 +18,12 @@ public class Topological {
      *      inEdgeNum[i]--;
      *      if (inEdgeNum[i] == 0):
      *          加入队列
-     *
      * 时间复杂度：O(n + v)
+     *
+     * DFS算法：
+     * 直接深度搜索，当结点的所有子结点都深度搜索结束后，就把当前结点加到栈里面。
+     * 时间复杂度：O(n + v)
+     *
+     *
      */
 }

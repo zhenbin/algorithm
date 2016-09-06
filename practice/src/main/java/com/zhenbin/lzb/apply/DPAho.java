@@ -43,6 +43,11 @@ public class DPAho {
     }
 
 
+    /**
+     * 判断随机生成的长度为k的字符串里，不出现以下字符串的概率。
+     * 思路：在每个结点里放入p[]，其中p[i]表示从这个节点出发走i步后不出现限制字符串的概率。
+     * @param args
+     */
     public static void main(String[] args) {
         DPAho dpAho = new DPAho();
         Aho aho = dpAho.aho;

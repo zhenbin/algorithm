@@ -45,13 +45,43 @@ public class Heap<T extends Comparable<? super T>> {
         }
     }
 
+    public void insert(T newNode) {
+        nodes[count++] = newNode;
+        int currentPosition = count - 1;
+        while (currentPosition > 0) {
+            int upPostion = (currentPosition - 1) / 2;
+            if (nodes[upPostion].compareTo(nodes[currentPosition]) <= 0) {
+                break;
+            }
+            T temp = nodes[currentPosition];
+            nodes[currentPosition] = nodes[upPostion];
+            nodes[upPostion] = temp;
+            currentPosition = upPostion;
+        }
+    }
+
     public static void main(String[] args) {
         Integer[] a = {8, 10, 32, 11, 32, 1, 7, 3, 5, 6, 9, 2, 100, 100, 100};
         //这里一定要写成”Heap<Integer> heap“，当我们不提供泛型类型时，会默认使用Object会代替
         Heap<Integer> heap = new Heap<Integer>(a);
-        Integer leastNumber;
-        while ((leastNumber = heap.pop()) != null) {
-            System.out.print(" " + leastNumber);
+        Integer minNumber;
+        while ((minNumber = heap.pop()) != null) {
+            System.out.print(" " + minNumber);
         }
+        System.out.println();
+
+        heap.insert(5);
+        heap.insert(3);
+        heap.insert(4);
+        heap.insert(5);
+        heap.insert(3);
+        heap.insert(4);
+        heap.insert(5);
+        heap.insert(3);
+        heap.insert(4);
+        while ((minNumber = heap.pop()) != null) {
+            System.out.print(" " + minNumber);
+        }
+        System.out.println();
     }
 }

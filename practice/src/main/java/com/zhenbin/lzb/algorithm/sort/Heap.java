@@ -1,4 +1,4 @@
-package com.zhenbin.lzb.algorithm;
+package com.zhenbin.lzb.algorithm.sort;
 
 /**
  * Created by zhenbin.lzb on 2016/9/8.

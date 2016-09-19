@@ -1,4 +1,4 @@
-package com.zhenbin.lzb.algorithm;
+package com.zhenbin.lzb.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.List;

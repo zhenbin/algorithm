@@ -7,9 +7,8 @@ import java.nio.channels.FileChannel;
 
 /**
  * Created by melon on 16/9/18.
- *
+ * <p>
  * http://ifeve.com/java-nio-scattergather/
- *
  */
 public class ChannelDemo2 {
     public static void main(String[] args) throws IOException {
@@ -25,6 +24,7 @@ public class ChannelDemo2 {
             System.out.print("header : ");
             header.flip();                              //flip切换成读模式，不然会出错的。
             while (header.hasRemaining()) {
+                //byte是单字节的；header-data是utf8编码的，对于英语文本，utf8只占用一个字节。
                 System.out.print((char) header.get());
             }
             System.out.println();
@@ -38,8 +38,8 @@ public class ChannelDemo2 {
             }
             System.out.println();
             content.clear();
-
             readBytes = inChannel.read(bufferArray);
+//            Objects.equals("234", "323");
         }
     }
 }

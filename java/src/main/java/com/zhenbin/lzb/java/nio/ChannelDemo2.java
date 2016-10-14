@@ -21,6 +21,7 @@ public class ChannelDemo2 {
         ByteBuffer[] bufferArray = {header, content};
         long readBytes = inChannel.read(bufferArray);
         while (readBytes != -1L) {
+            //读header的内容
             System.out.print("header : ");
             header.flip();                              //flip切换成读模式，不然会出错的。
             while (header.hasRemaining()) {
@@ -29,6 +30,7 @@ public class ChannelDemo2 {
             System.out.println();
             header.clear();
 
+            //读content的内容
             System.out.print("content : ");
             content.flip();
             while (content.hasRemaining()) {

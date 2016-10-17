@@ -18,7 +18,7 @@ public class Solution {
             String subString = "";
             for (int j = i; j < s.length(); j++) {
                 subString += s.charAt(j);
-                if (!wordDict.contains(subString)) break;
+                if (!wordDict.contains(subString)) continue;
                 if (j == s.length() -1 || nextStart[j+1].size() != 0) {
                     nextStart[i].add(j+1);
                 }
@@ -50,6 +50,8 @@ public class Solution {
         set.add("sand");
         set.add("dog");
         Solution solution = new Solution();
-        solution.wordBreak(s, set);
+        List<String> result = solution.wordBreak(s, set);
+        for (String ss : result)
+            System.out.println(ss);
     }
 }
